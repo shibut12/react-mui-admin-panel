@@ -16,6 +16,8 @@ import Grid from '@mui/material/Grid';
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 
+import Footer from '../Footer';
+
 
 
 const LoginPage = ({ ...props }) => {
@@ -27,8 +29,15 @@ const LoginPage = ({ ...props }) => {
     }
 
     return(
-        <div>
-            <Container component="main" maxWidth="xs">
+            <div>
+                <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    minHeight: '100vh',
+                }}
+            >
+                <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <Box
                     sx={{
@@ -91,7 +100,9 @@ const LoginPage = ({ ...props }) => {
                             </Grid>
                         </Box>
                     </Box>
-            </Container>
+                </Container>
+                <Footer/>
+            </Box>
         </div>
     )
 }
