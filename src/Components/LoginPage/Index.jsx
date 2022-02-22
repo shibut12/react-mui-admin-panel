@@ -1,6 +1,8 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
+import { useNavigate } from 'react-router-dom';
+
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
@@ -14,17 +16,15 @@ import Grid from '@mui/material/Grid';
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 
+
+
 const LoginPage = ({ ...props }) => {
 
+    let navigate = useNavigate();
+
     const handleSubmit = () => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        // eslint-disable-next-line no-console
-        console.log({
-          email: data.get('email'),
-          password: data.get('password'),
-        });
-      };
+        navigate("/home");
+    }
 
     return(
         <div>
