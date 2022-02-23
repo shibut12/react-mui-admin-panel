@@ -1,68 +1,146 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
-import red from "@mui/material/colors/red";
-import orange from "@mui/material/colors/orange";
-import yellow from "@mui/material/colors/yellow";
-import green from "@mui/material/colors/green";
-import lightBlue from "@mui/material/colors/lightBlue";
-import grey from "@mui/material/colors/grey";
+let SimpleTheme = createTheme({
+  palette: {
+    primary: {
+      light: '#63ccff',
+      main: '#009be5',
+      dark: '#006db3',
+    },
+  },
+  typography: {
+    h5: {
+      fontWeight: 500,
+      fontSize: 26,
+      letterSpacing: 0.5,
+    },
+  },
+  shape: {
+    borderRadius: 8,
+  },
+  components: {
+    MuiTab: {
+      defaultProps: {
+        disableRipple: true,
+      },
+    },
+  },
+  mixins: {
+    toolbar: {
+      minHeight: 48,
+    },
+  },
+});
 
-const SimpleTheme = (mode) =>
-  createTheme({
-    palette: {
-      mode: 'light',
-      primary: {
-        main: orange[500]
+SimpleTheme = {
+  ...SimpleTheme,
+  components: {
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          backgroundColor: '#081627',
+        },
       },
-      secondary: {
-        light: red[500],
-        main: red[700],
-        dark: red[900],
-        contrastText: grey[50]
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+        },
+        contained: {
+          boxShadow: 'none',
+          '&:active': {
+            boxShadow: 'none',
+          },
+        },
       },
-      error: {
-        light: red[400],
-        main: red[500],
-        dark: red[300],
-        contrastText: grey[800]
+    },
+    MuiTabs: {
+      styleOverrides: {
+        root: {
+          marginLeft: theme.spacing(1),
+        },
+        indicator: {
+          height: 3,
+          borderTopLeftRadius: 3,
+          borderTopRightRadius: 3,
+          backgroundColor: theme.palette.common.white,
+        },
       },
-      success: {
-        main: green[500]
+    },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+          margin: '0 16px',
+          minWidth: 0,
+          padding: 0,
+          [theme.breakpoints.up('md')]: {
+            padding: 0,
+            minWidth: 0,
+          },
+        },
       },
-      warning: {
-        main: yellow[500],
-        contrastText: grey[800]
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          padding: theme.spacing(1),
+        },
       },
-      info: {
-        main: lightBlue[500]
+    },
+    MuiTooltip: {
+      styleOverrides: {
+        tooltip: {
+          borderRadius: 4,
+        },
       },
-      text: {
-        primary: grey[900],
-        secondary: grey[700],
-        disabled: grey[500]
+    },
+    MuiDivider: {
+      styleOverrides: {
+        root: {
+          backgroundColor: 'rgb(255,255,255,0.15)',
+        },
       },
-      action: {
-        active: red[200],
-        activeOpacity: 1,
-        disabled: grey[700],
-        disabledBackground: grey[200],
-        hover: red[100],
-        hoverOpacity: 0.7,
-        focus: red[600],
-        focusOpacity: 1,
-        selected: red[300],
-        selectedOpacity: 1
+    },
+    MuiListItemButton: {
+      styleOverrides: {
+        root: {
+          '&.Mui-selected': {
+            color: '#4fc3f7',
+          },
+        },
       },
-      background: {
-        default: orange[300],
-        paper: grey[200]
+    },
+    MuiListItemText: {
+      styleOverrides: {
+        primary: {
+          fontSize: 14,
+          fontWeight: theme.typography.fontWeightMedium,
+        },
       },
-      common: {
-        black: grey[900],
-        white: grey[200]
+    },
+    MuiListItemIcon: {
+      styleOverrides: {
+        root: {
+          color: 'inherit',
+          minWidth: 'auto',
+          marginRight: theme.spacing(2),
+          '& svg': {
+            fontSize: 20,
+          },
+        },
       },
-      tonalOffset: 0.2
-    }
-  });
+    },
+    MuiAvatar: {
+      styleOverrides: {
+        root: {
+          width: 32,
+          height: 32,
+        },
+      },
+    },
+  },
+};
 
 export default SimpleTheme;
