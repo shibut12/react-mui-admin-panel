@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 import {
   BrowserRouter,
   Routes,
@@ -18,20 +19,19 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
-const theme = createTheme();
+const SimpleTheme = createTheme();
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={ <LoginPage /> } />
-          <Route path="/home" element={ <HomePage /> } />
-          <Route element={ LoginPage } />
-        </Routes>
-      </BrowserRouter>
-    </ThemeProvider>
-  </React.StrictMode>,
+  <ThemeProvider theme={SimpleTheme}>
+    <CssBaseline />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={ <LoginPage /> } />
+        <Route path="/home" element={ <HomePage /> } />
+        <Route element={ LoginPage } />
+      </Routes>
+    </BrowserRouter>
+  </ThemeProvider>,
   document.getElementById('root')
 );
 
